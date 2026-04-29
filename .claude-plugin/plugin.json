@@ -4,7 +4,6 @@
   "description": "Shared Jbeat engineering conventions packaged as a Claude plugin skill.",
   "author": {
     "name": "jbeat",
-    "email": "jbeat0630@gmail.com",
     "url": "https://github.com/jbeat30"
   },
   "repository": "https://github.com/jbeat30/jbeat-common",
