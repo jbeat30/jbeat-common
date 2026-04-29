@@ -67,5 +67,5 @@
 - Confirm executed and unexecuted validations were reported separately.
 - Confirm traceability and maintainability improved or at least did not regress.
 - Confirm dead code introduced or exposed by this change has been removed.
-- Confirm error messages accurately reflect the actual failure scenario (user-facing vs developer-facing separated).
+- Confirm error messages accurately reflect the actual failure scenario.
 - Confirm classification logic is consolidated into a single authoritative function per concept.

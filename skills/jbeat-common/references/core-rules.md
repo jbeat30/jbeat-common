@@ -55,7 +55,7 @@
 - Handle exceptional cases early to reduce nesting when it improves clarity.
 - Keep input, output, and side-effect boundaries visible.
 - Handle nullable and optional inputs explicitly.
-- Keep success/failure representation consistent within the same layer.
+- Keep success and failure representation consistent within the same layer.
 - Prefer official update paths over bypass-style updates.
 - Abstract only after actual duplication or maintenance cost is confirmed.
 - Choose the simpler method when two approaches solve the same problem equally well.
@@ -63,28 +63,24 @@
 
 ## Comment Style
 
-Write in Korean unless the project requires another language. Concise, consistent, focused on intent and constraints — not implementation details. Not a translation of the code.
+Write in Korean unless the project requires another language. Concise, consistent, focused on intent and constraints, not implementation details.
 
 ### Basic Style
 
-- End with noun-style expressions: `담당`, `반환`, `수행`, `정의`, `검증`.
+- End with noun-style expressions such as `담당`, `반환`, `수행`, `정의`, `검증`.
 - Avoid verbose sentences like `~을 담당하고 있습니다` or `~하는 로직입니다`.
-- Focus on **Why** (business rules) and **What** (core functionality), not How.
+- Focus on why and what, not how.
 - Do not end comments with a period.
 
 ### Comment Placement
 
 | Position | Style | When to use |
 |----------|-------|-------------|
-| Exported function / class | `/** @description ...\n * @param ...\n * @returns ... */` | All public-facing functions and classes |
-| Interface / type field | trailing `//` | When field purpose is not obvious from the name |
+| Exported function or class | `/** @description ...\n * @param ...\n * @returns ... */` | Public-facing functions and classes |
+| Interface or type field | trailing `//` | When field purpose is not obvious from the name |
 | Internal branch or block | `// WHY one-liner` | Policy rationale, non-obvious conditions |
-| Variable / constant (intent unclear) | `const x = ...; // 보충 설명` | When name alone is insufficient |
+| Variable or constant | `const x = ...; // 보충 설명` | When name alone is insufficient |
 | Private internal helper | `//` or omit | Only when name does not convey enough |
-
-**JSDoc** (`/** ... */`) — exported functions and classes only. Not for file headers or internal details.
-**Inline `//`** — all in-body comments: branch rationale, variable clarification, block labels.
-**Do not mix styles**: `/** */` on a variable is wrong. `//` on an exported function header is wrong.
 
 ### When Comments Are Needed
 
@@ -93,18 +89,7 @@ Write in Korean unless the project requires another language. Concise, consisten
 - Reasons for performance optimization, bypass handling, or caching
 - Cases where intent is difficult to understand from naming alone
 - Complex state changes or side effects
-- Fallback logic for legacy data formats (e.g., `// 레거시 data.url 폴백`)
-
-### JSDoc Details
-
-- Document parameters, return values, side effects, and exceptions when important.
-- Use `@param`, `@returns`, `@throws`, `@example`, `@note`, `@description` to reduce understanding cost — not to increase tag count.
-- Do not write multi-line JSDoc for simple utilities where name and type signature are self-explanatory.
-
-### Inline Comment Details
-
-- Short explanations for variables, state values, constants, and simple branch intent use `//`, not `/** ... */`.
-- For complex branches, explain the reason and policy background, not just the condition.
+- Fallback logic for legacy data formats
 
 ### Avoid These Comments
 
@@ -132,34 +117,7 @@ Write in Korean unless the project requires another language. Concise, consisten
 
 ## Stability and Quality
 
-### Stability
-
 - Always consider external input and possible failures.
 - Do not hide errors. Make recovery strategies or failure impact visible.
 - Write normal paths and failure paths separately.
 - Be careful not to break existing public behavior through changes.
-
-### Security and Sensitive Information
-
-- Do not expose sensitive information, secrets, or credentials in code or logs.
-- Do not trust external data. Consider validation or defensive logic.
-- Do not easily allow risky bypass implementations, even as temporary solutions.
-
-## Error Handling and Data Responsibility
-
-### User-Facing Messages
-
-- Keep error messages centralized rather than hardcoding them inline.
-- Ensure messages match the actual failure that occurred.
-- Separate user-facing messages from developer-facing logs.
-- Treat external input as untrusted and preserve defensive validation.
-
-### Developer-Facing Messages
-
-- Console/log messages should identify: module or function, technical cause, relevant context.
-- Use `console.error` for service-breaking errors, `console.warn` for degraded-but-recoverable, `console.debug` for flow tracing only.
-
-### Data Classification
-
-- Separate validation logic by layer only when the layers truly require different criteria.
-- Keep each classification concept owned by one authoritative function. Eliminate duplicates.
