@@ -1,7 +1,7 @@
 {
   "name": "jbeat-plugins",
-  "interface": {
-    "displayName": "Jbeat Plugins"
+  "owner": {
+    "name": "jbeat"
   },
   "plugins": [
     {
@@ -10,10 +10,7 @@
         "source": "github",
         "repo": "jbeat30/jbeat-common"
       },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
+      "description": "Shared Jbeat engineering conventions packaged as a Claude plugin skill.",
       "category": "Productivity"
     }
   ]
