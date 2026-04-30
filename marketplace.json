@@ -1,0 +1,17 @@
+{
+  "name": "jbeat-plugins",
+  "owner": {
+    "name": "jbeat"
+  },
+  "plugins": [
+    {
+      "name": "jbeat-conventions",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/jbeat30/jbeat-conventions.git"
+      },
+      "description": "Shared Jbeat engineering conventions packaged as a Claude plugin skill.",
+      "category": "Productivity"
+    }
+  ]
+}
