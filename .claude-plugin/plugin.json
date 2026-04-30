@@ -1,12 +1,12 @@
 {
-  "name": "jbeat-common",
+  "name": "jbeat-conventions",
   "version": "0.1.0",
   "description": "Shared Jbeat engineering conventions packaged as a Claude plugin skill.",
   "author": {
     "name": "jbeat",
     "url": "https://github.com/jbeat30"
   },
-  "repository": "https://github.com/jbeat30/jbeat-common",
+  "repository": "https://github.com/jbeat30/jbeat-conventions",
   "license": "MIT",
   "keywords": [
     "claude-skill",
@@ -17,9 +17,9 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Jbeat Common",
+    "displayName": "Jbeat Conventions",
     "shortDescription": "Jbeat engineering conventions for implementation and review",
-    "longDescription": "Applies Jbeat common engineering conventions across repositories, focusing on scope control, regression safety, naming rules, comment style, and honest validation reporting.",
+    "longDescription": "Applies Jbeat engineering conventions across repositories, focusing on scope control, regression safety, naming rules, comment style, and honest validation reporting.",
     "developerName": "jbeat",
     "category": "Productivity",
     "capabilities": [

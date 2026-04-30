@@ -5,10 +5,10 @@
   },
   "plugins": [
     {
-      "name": "jbeat-common",
+      "name": "jbeat-conventions",
       "source": {
         "source": "url",
-        "url": "https://github.com/jbeat30/jbeat-common.git"
+        "url": "https://github.com/jbeat30/jbeat-conventions.git"
       },
       "description": "Shared Jbeat engineering conventions packaged as a Claude plugin skill.",
       "category": "Productivity"
