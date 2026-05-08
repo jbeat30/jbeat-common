@@ -27,7 +27,7 @@ plugins update jbeat-conventions@jbeat-plugins
 ## Commands
 
 ```
-/jbeat-setup   # Initial setup — run once after installation
+/jbeat-setup   # Auto mode — configure automatic convention activation
 /jbeat-apply   # Manual mode — explicitly activate all conventions
 ```
 
