@@ -27,8 +27,8 @@ plugins update jbeat-conventions@jbeat-plugins
 ## Commands
 
 ```
-/jbeat-conventions   # Apply conventions to the current session
-/jbeat-apply         # Manually load all convention reference files
+/jbeat-setup   # Initial setup — run once after installation
+/jbeat-apply   # Manual mode — explicitly activate all conventions
 ```
 
 ## Reference Files
