@@ -24,7 +24,7 @@ Explicitly load all Jbeat engineering convention files into the active context.
 
 1. Use Bash to find the plugin installation path:
    ```
-   find ~/.claude -path "*/jbeat-conventions/references" -type d 2>/dev/null | head -1
+   find ~/.claude -path "*/jbeat-apply/references" -type d 2>/dev/null | head -1
    ```
 2. Read each reference file from the resolved path in this order:
    - `core-rules.md`
