@@ -61,7 +61,7 @@ Then read the file. Check for both of the following:
 If either entry is missing, add it now using Edit (file exists) or Write (file absent). Preserve all existing keys.
 
 Report the result in Korean:
-- Entry added → `⚙️ settings.json에 jbeat-conventions 항목을 추가했습니다. Claude Code 재시작 후 플러그인이 활성화됩니다.`
+- Entry added → `⚙️ settings.json에 jbeat-conventions 항목을 추가했습니다.`
 - Already present → `✅ settings.json 설정 확인 완료`
 
 ---

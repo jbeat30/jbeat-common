@@ -82,13 +82,13 @@ Preserve all existing keys and values. Only add what is missing.
 ### If newly configured (one or more entries were added):
 
 ```
-✅ jbeat-conventions 초기 설정 완료
+✅ jbeat-conventions 설정 완료
 
 추가된 항목:
 - enabledPlugins에 "jbeat-conventions@jbeat-plugins" 추가
 - extraKnownMarketplaces에 "jbeat-plugins" 등록
 
-Claude Code를 재시작하면 아래 명령어를 사용할 수 있습니다:
+사용 가능한 명령어:
   /jbeat-conventions  — 현재 작업에 컨벤션 적용
   /jbeat-apply        — 모든 컨벤션 파일 수동 로드
 ```

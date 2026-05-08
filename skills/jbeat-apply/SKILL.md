@@ -12,6 +12,7 @@ argument-hint: "(no argument needed)"
 user-invocable: true
 allowed-tools:
   - Read
+  - Bash
   - Glob
 ---
 
@@ -21,14 +22,17 @@ Explicitly load all Jbeat engineering convention files into the active context.
 
 ## Steps
 
-1. Use Glob with pattern `../jbeat-conventions/references/*.md` to locate all convention reference files.
-2. Read each file found in this order:
-   - `../jbeat-conventions/references/core-rules.md`
-   - `../jbeat-conventions/references/naming-conventions.md`
-   - `../jbeat-conventions/references/comment-conventions.md`
-   - `../jbeat-conventions/references/language-conventions.md`
-   - `../jbeat-conventions/references/quality-checklist.md`
-   - `../jbeat-conventions/references/reporting-format.md`
+1. Use Bash to find the plugin installation path:
+   ```
+   find ~/.claude -path "*/jbeat-conventions/references" -type d 2>/dev/null | head -1
+   ```
+2. Read each reference file from the resolved path in this order:
+   - `core-rules.md`
+   - `naming-conventions.md`
+   - `comment-conventions.md`
+   - `language-conventions.md`
+   - `quality-checklist.md`
+   - `reporting-format.md`
 3. After reading all files, report to the user in Korean.
 
 ## After Loading

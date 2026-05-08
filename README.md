@@ -14,13 +14,19 @@ Guides implementation, review, refactoring, debugging, and planning with a consi
 
 ## Installation
 
-```bash
-claude plugins install jbeat-conventions@jbeat-plugins
+```
+plugins install jbeat-conventions@jbeat-plugins
+```
+
+## Update
+
+```
+plugins update jbeat-conventions@jbeat-plugins
 ```
 
 ## Commands
 
-```bash
+```
 /jbeat-conventions   # Apply conventions to the current session
 /jbeat-apply         # Manually load all convention reference files
 ```
