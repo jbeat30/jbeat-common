@@ -42,7 +42,10 @@ Read only the file needed for the current task.
 
 | File | Read when |
 |------|-----------|
-| [references/core-rules.md](references/core-rules.md) | Naming, comment style, function/module design, duplication policy, error handling |
+| [references/core-rules.md](references/core-rules.md) | Development philosophy, change principles, function/module design, structure, error handling |
+| [references/naming-conventions.md](references/naming-conventions.md) | Naming rules, variable and constant naming |
+| [references/comment-conventions.md](references/comment-conventions.md) | Comment style, JSDoc vs inline, when to add comments |
+| [references/language-conventions.md](references/language-conventions.md) | Language policy: Korean default for comments and reports |
 | [references/quality-checklist.md](references/quality-checklist.md) | Pre-work checks, stability criteria, prohibited actions, final self-check |
 | [references/reporting-format.md](references/reporting-format.md) | Writing the final result report and validation summary |
 

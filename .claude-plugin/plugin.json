@@ -1,6 +1,6 @@
 {
   "name": "jbeat-conventions",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Shared Jbeat engineering conventions packaged as a Claude plugin skill.",
   "author": {
     "name": "jbeat",
@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "Jbeat Conventions",
     "shortDescription": "Jbeat engineering conventions for implementation and review",
-    "longDescription": "Applies Jbeat engineering conventions across repositories, focusing on scope control, regression safety, naming rules, comment style, and honest validation reporting.",
+    "longDescription": "Applies Jbeat engineering conventions across repositories, focusing on scope control, regression safety, naming rules, comment style, and honest validation reporting. Run /jbeat-setup once to configure Claude Code automatically. Use /jbeat-apply to manually load all conventions into context. Conventions are organized into separate reference files: core rules, naming, comment style, language policy, quality checklist, and reporting format.",
     "developerName": "jbeat",
     "category": "Productivity",
     "capabilities": [
