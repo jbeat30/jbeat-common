@@ -1,12 +1,13 @@
 ---
 name: jbeat-setup
 classification: capability
-classification-reason: "One-time initial setup command for the jbeat-conventions plugin. Writes the required entries into the user's ~/.claude/settings.json."
+classification-reason: "Toggles automatic convention activation by flipping enabledPlugins in ~/.claude/settings.json. Run again to switch between auto mode on and off."
 deprecation-risk: none
 description: |
-  Run once after installing jbeat-conventions to configure Claude Code automatically.
-  Creates ~/.claude/settings.json if absent, adds missing entries if needed, keeps existing entries untouched.
-  Triggers: jbeat setup, jbeat init, jbeat install, 초기 설정, 세팅, setup
+  Toggles jbeat-conventions auto mode on or off.
+  Each run flips enabledPlugins["jbeat-conventions@jbeat-plugins"] between true and false.
+  Creates ~/.claude/settings.json if absent. Always ensures marketplace entry is present.
+  Triggers: jbeat setup, jbeat init, jbeat install, 초기 설정, 세팅, setup, 자동모드, 토글
 argument-hint: "(no argument needed)"
 user-invocable: true
 allowed-tools:
@@ -16,9 +17,10 @@ allowed-tools:
   - Bash
 ---
 
-# Jbeat Conventions — Setup
+# Jbeat Conventions — Setup (Toggle)
 
-Configures `~/.claude/settings.json` for the jbeat-conventions plugin.
+Toggles jbeat-conventions auto mode by flipping `enabledPlugins` in `~/.claude/settings.json`.
+Run again at any time to enable or disable.
 
 ---
 
@@ -39,9 +41,9 @@ Try to read `~/.claude/settings.json`.
 
 ---
 
-## Step 3A — File does not exist: create it
+## Step 3A — File does not exist: create it with auto mode ON
 
-Write `~/.claude/settings.json` with the following content:
+Write `~/.claude/settings.json`:
 
 ```json
 {
@@ -59,19 +61,20 @@ Write `~/.claude/settings.json` with the following content:
 }
 ```
 
-Then go to Step 4 (newly configured).
+Then go to Step 4A (enabled).
 
 ---
 
-## Step 3B — File exists: check entries
+## Step 3B — File exists: toggle and ensure marketplace
 
-Check for both of the following:
+**Toggle `enabledPlugins["jbeat-conventions@jbeat-plugins"]`:**
+- Currently `true` → set to `false` → go to Step 4B (disabled)
+- Currently `false` → set to `true` → go to Step 4A (enabled)
+- Key absent → add as `true` → go to Step 4A (enabled)
 
-**A.** `enabledPlugins` contains `"jbeat-conventions@jbeat-plugins": true`
-
-**B.** `extraKnownMarketplaces` contains `"jbeat-plugins"` with:
+**Always ensure `extraKnownMarketplaces["jbeat-plugins"]` is present.** If missing, add it:
 ```json
-{
+"jbeat-plugins": {
   "source": {
     "source": "github",
     "repo": "jbeat30/jbeat-conventions"
@@ -79,14 +82,13 @@ Check for both of the following:
 }
 ```
 
-- Both present → go to Step 5 (already configured)
-- One or both missing → add only the missing entries using Edit, preserve all existing keys → go to Step 4
+Preserve all existing keys.
 
 ---
 
-## Step 4 — Report: newly configured
+## Step 4A — Report: auto mode enabled
 
-Run this Bash command first:
+Run:
 ```bash
 printf '\033[32mSUCCESS!\033[0m\n'
 ```
@@ -94,23 +96,20 @@ printf '\033[32mSUCCESS!\033[0m\n'
 Then output:
 
 ```
-jbeat-conventions 설정이 완료되었습니다.
+자동 모드가 활성화되었습니다.
+이제 jbeat-conventions가 자동으로 적용됩니다.
 
-사용 가능한 명령어:
-  /jbeat-conventions  — 컨벤션 적용
-  /jbeat-apply        — 모든 컨벤션 파일 로드
+수동으로 사용하려면:
+  /jbeat-apply  — 모든 컨벤션 파일 직접 로드
 ```
 
 ---
 
-## Step 5 — Report: already configured
+## Step 4B — Report: auto mode disabled
 
 Output:
 
 ```
-이미 설정되어 있습니다. 바로 사용하셔도 됩니다.
-
-사용 가능한 명령어:
-  /jbeat-conventions  — 컨벤션 적용
-  /jbeat-apply        — 모든 컨벤션 파일 로드
+자동 모드가 비활성화되었습니다.
+컨벤션을 사용하려면 /jbeat-apply 를 직접 실행하세요.
 ```
