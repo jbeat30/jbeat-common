@@ -21,9 +21,25 @@ This repository provides a reusable skill that guides implementation, review, re
 - `.claude-plugin/plugin.json`: plugin packaging metadata
 - `.claude-plugin/marketplace.json`: local marketplace metadata
 
+## Installation
+
+```bash
+# 1. 마켓플레이스 등록 (최초 1회)
+claude plugins marketplace add jbeat30/jbeat-conventions
+
+# 2. 플러그인 설치
+claude plugins install jbeat-conventions@jbeat-plugins
+```
+
 ## Usage
 
-Use this skill when you want an AI coding agent to follow Jbeat conventions across repositories, especially for review, implementation, refactoring, debugging, and planning.
+```bash
+# 컨벤션 적용
+/jbeat-conventions
+
+# 모든 컨벤션 파일 수동 로드
+/jbeat-apply
+```
 
 ## Repository Rename Note
 
